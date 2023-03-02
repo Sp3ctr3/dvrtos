@@ -1,0 +1,14 @@
+# MacOS directory files
+.DS_Store
+
+# cache dir
+.cache/
+
+# Example project files
+build/
+build_esp*_*/
+sdkconfig
+sdkconfig.old
+
+# managed_components for esp
+managed_components

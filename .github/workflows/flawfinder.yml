@@ -8,7 +8,6 @@ jobs:
       - name: Flawfinder action step
         uses: david-a-wheeler/flawfinder@2.0.19
         with:
-          arguments: '--minlevel 4 --sarif .'
-          output: 'flawfinder_results.sarif'
+          arguments: '--minlevel 4 -error-level 4 .'
 
 

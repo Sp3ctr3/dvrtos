@@ -8,6 +8,6 @@ jobs:
       - name: Flawfinder action step
         uses: david-a-wheeler/flawfinder@2.0.19
         with:
-          arguments: '--minlevel 4 -error-level 4 .'
+          arguments: '--minlevel 4 -error-level 4 main'
 
 

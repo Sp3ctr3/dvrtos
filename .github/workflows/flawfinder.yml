@@ -5,11 +5,11 @@ jobs:
     name: Flawfinder
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Flawfinder action step
         uses: david-a-wheeler/flawfinder@2.0.19
         with:
           arguments: '--minlevel 4 .'
 
-      - name: List
-        run: |
-            ls ${{ github.workspace }}

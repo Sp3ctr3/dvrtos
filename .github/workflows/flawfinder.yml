@@ -1,15 +1,26 @@
-on: [push]
+on: 
+  push:
+
+  workflow_dispatch:
 
 jobs:
   flawfinder:
+    permissions:
+      # required uploading the SARIF file
+      security-events: write
     name: Flawfinder
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Flawfinder action step
         uses: david-a-wheeler/flawfinder@2.0.19
         with:
-          arguments: '--minlevel 4 --error-level 4 .'
+          arguments: '--minlevel 4 --error-level 4 --sarif .'
+          output: 'flawfinder_results.sarif'
 
+      - name: Upload SARIF result file
+        uses: github/codeql-action/upload-sarif@v2.20.0
+        with:
+          sarif_file: flawfinder_results.sarif
